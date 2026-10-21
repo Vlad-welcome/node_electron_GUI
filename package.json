@@ -22,7 +22,7 @@
       "output": "dist"
     },
     "win": {
-      "target": "nsis" 
+      "target": "portable" 
     }
   }
 }
