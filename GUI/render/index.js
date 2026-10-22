@@ -23,4 +23,9 @@ $(function () {
   $("#new-todo").on("keypress", function (e) {
     if (e.which === 13) $("#add").trigger("click");
   });
+
+  //Navigate//
+  $("#go-second").on("click", function () {
+    window.location.href = "second.html";
+  });
 });

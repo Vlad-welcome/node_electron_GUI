@@ -7,12 +7,17 @@ function createWindow() {
     width: 600,
     height: 500,
     webPreferences: {
-      preload: path.join(GUI, "render_index.js"),
+      // preload: path.join(__dirname, "preload.js"),
+      nodeIntegration: false,
       contextIsolation: true,
+      sandbox: true,
+      webSecurity: true,
+      allowRunningInsecureContent: false,
+      experimentalFeatures: false,
     },
   });
 
-  win.loadFile(path.join(GUI, "index.html"));
+  win.loadFile(path.join(GUI, "HTML/index.html"));
 }
 
 app.whenReady().then(createWindow);
