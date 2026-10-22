@@ -1,14 +1,26 @@
-document.getElementById("add").addEventListener("click", () => {
-  const input = document.getElementById("new-todo");
-  const todoText = input.value.trim();
+// render_index.js
+$(function () {
+  $("#add").on("click", function () {
+    const $input = $("#new-todo");
+    const todoText = $input.val().trim();
 
-  if (todoText) {
-    const li = document.createElement("li");
-    li.textContent = todoText;
-    // Удаление задачи по клику
-    li.addEventListener("click", () => li.remove());
+    if (todoText) {
+      const $li = $("<li>")
+        .addClass("list-group-item list-group-item-action")
+        .css("cursor", "pointer")
+        .text(todoText);
 
-    document.getElementById("todos").appendChild(li);
-    input.value = "";
-  }
+      $li.on("click", function () {
+        $(this).remove();
+      });
+
+      $("#todos").append($li);
+      $input.val("").trigger("focus");
+    }
+  });
+
+  // Enter тоже добавляет задачу — удобно
+  $("#new-todo").on("keypress", function (e) {
+    if (e.which === 13) $("#add").trigger("click");
+  });
 });

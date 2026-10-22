@@ -22,7 +22,11 @@
       "output": "dist"
     },
     "win": {
-      "target": "portable" 
+      "target": "portable"
     }
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8",
+    "jquery": "^4.0.0"
   }
 }
